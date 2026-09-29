@@ -1,0 +1,37 @@
+# TravelAI 后端运行依赖(精简版)
+# 生成方式:由 `pip install -r` 全新安装即可复现当前可运行环境(LangChain 1.x)。
+# 版本 = 当前已验证可跑的 venv 实际版本,请勿随意回退到旧 0.x(API 兼容性不同)。
+# 说明:仅列项目直接 import 的顶层依赖 + 隐性必装(run),传递依赖由 pip 解析。
+
+# —— Web 框架 ——
+fastapi==0.141.1
+uvicorn[standard]==0.52.1
+python-multipart==0.0.32        # fastapi OAuth2 表单(OAuth2PasswordRequestForm)必需
+
+# —— 数据校验 ——
+pydantic==2.13.4
+pydantic-settings==2.14.2
+
+# —— 数据库(SQLite 异步;若换 PostgreSQL 再加 asyncpg)——
+sqlalchemy==2.0.52
+aiosqlite==0.22.1               # sqlite+aiosqlite 异步驱动(隐性依赖,不 import 但必装)
+
+# —— LLM / Agent(LangChain 1.x)——
+langchain-openai==1.4.1
+langchain-chroma==1.1.0         # rag/chain.py 的 from langchain_chroma import Chroma 必需
+langchain-core==1.5.3
+langgraph==1.2.10
+
+# —— 向量库 ——
+chromadb==1.5.9
+
+# —— HTTP / 外部 API ——
+httpx==0.28.1
+
+# —— 认证 ——
+bcrypt==5.0.0                   # auth.py 密码哈希
+python-jose[cryptography]==3.5.0  # JWT(token 生成/校验)
+
+# —— 仅开发/测试(可选,不装也能跑)——
+# pytest==8.0.0
+# pytest-asyncio==0.23.4

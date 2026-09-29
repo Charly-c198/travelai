@@ -1,0 +1,173 @@
+/* ============================================================
+   TravelAI — Maison Voyage 编辑社论风设计体系（注入 Arco 之上）
+   温纸浅色 / 深石油色 · 青绿品牌 · Fraunces + Inter
+   ============================================================ */
+
+/* 字体（中国网络 Google Fonts 可能不稳，serif 兜底 Georgia/Songti） */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ——— 品牌色（青绿）——— */
+  --primary-1: #e6f2ee;
+  --primary-2: #cde4dc;
+  --primary-3: #a8cfc3;
+  --primary-4: #7eb5a7;
+  --primary-5: #3e9481;
+  --primary-6: #0b6b5c; /* 主品牌 */
+  --primary-7: #095a4e;
+  --primary-8: #07493f;
+
+  --brand: #0b6b5c;
+  --brand-soft: #e6f2ee;
+  --brand-bright: #6ad7bc;
+
+  /* ——— 温纸浅色表面 ——— */
+  --bg: #f3f0e9;        /* 页面底 · 暖纸 */
+  --bg-alt: #ebe7dd;
+  --surface: #fbfaf6;
+  --line: #e2ded3;
+  --line-strong: #cfcabd;
+  --ink: #1a2420;        /* 深石油墨 */
+  --ink-soft: #44524d;
+  --ink-faint: #8b9892;
+  --sidebar-bg: #ece8de; /* 侧边栏 · 比主背景深一级 */
+
+  --color-bg-1: #f3f0e9;
+  --color-bg-2: #fbfaf6;
+  --color-bg-3: #ffffff;
+  --color-bg-4: #edf1ed;
+  --color-text-1: #1a2420;
+  --color-text-2: #44524d;
+  --color-text-3: #6b7a74;
+  --color-text-4: #9aa7a1;
+  --color-border-1: #ece8df;
+  --color-border-2: #e2ded3;
+  --color-border-3: #d3cec1;
+  --color-border-4: #bdb7a8;
+  --color-fill-1: #eeebe3;
+  --color-fill-2: #e6e2d8;
+  --color-fill-3: #d9d4c8;
+  --color-fill-4: #cbc5b6;
+
+  --border-radius-small: 6px;
+  --border-radius-medium: 10px;
+  --border-radius-large: 16px;
+
+  --font-family: 'Inter', -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Songti SC', 'SimSun', serif;
+
+  --radius-card: 16px;
+  --shadow-soft: 0 1px 2px rgba(20, 30, 27, 0.05), 0 8px 24px -12px rgba(20, 30, 27, 0.18);
+  color-scheme: light;
+}
+
+/* ——— 深石油暗色 ——— */
+[arco-theme='dark'], .theme-dark {
+  --primary-1: #0f2b25;
+  --primary-2: #143a31;
+  --primary-3: #1d5043;
+  --primary-4: #2a6b59;
+  --primary-5: #48917c;
+  --primary-6: #6ad7bc; /* 暗色主品牌变亮 */
+  --primary-7: #7ce2c9;
+  --primary-8: #9bead7;
+
+  --brand: #6ad7bc;
+  --brand-soft: #10302a;
+  --brand-bright: #7ce2c9;
+
+  --bg: #0b0f0e;
+  --bg-alt: #0f1514;
+  --surface: #111816;
+  --line: #24302c;
+  --line-strong: #33423d;
+  --ink: #eef2f0;
+  --ink-soft: #c3ccc8;
+  --ink-faint: #8f9a95;
+  --sidebar-bg: #060908; /* 侧边栏 · 比主背景更深一级的深石油 */
+
+  --color-bg-1: #0b0f0e;
+  --color-bg-2: #111816;
+  --color-bg-3: #151c1a;
+  --color-bg-4: #1a2320;
+  --color-text-1: #eef2f0;
+  --color-text-2: #c3ccc8;
+  --color-text-3: #8f9a95;
+  --color-text-4: #5f6c67;
+  --color-border-1: #1c2622;
+  --color-border-2: #24302c;
+  --color-border-3: #33423d;
+  --color-border-4: #42524c;
+  --color-fill-1: #161e1b;
+  --color-fill-2: #1e2824;
+  --color-fill-3: #28342f;
+  --color-fill-4: #33413b;
+  color-scheme: dark;
+}
+
+/* ——— 基础排版 ——— */
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-family);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+#app { min-height: 100vh; background: var(--bg); }
+
+/* 大标题用衬线展示体 */
+.font-display, h1.font-display, .page-header h1, .showcase-title,
+.trip-title, .dashboard-page h1, .metric-value { font-family: var(--font-display); font-weight: 300; letter-spacing: 0.005em; }
+.font-body { font-family: var(--font-family); }
+
+/* ——— 语义工具类（同 maison 语汇）——— */
+.bg-base { background: var(--bg); }
+.bg-alt { background: var(--bg-alt); }
+.bg-surface { background: var(--surface); }
+.text-ink { color: var(--ink); }
+.text-soft { color: var(--ink-soft); }
+.text-faint { color: var(--ink-faint); }
+.text-brand { color: var(--brand); }
+.text-onbrand { color: #fff; }
+.bg-brand { background: var(--brand); }
+.bg-brand-soft { background: var(--brand-soft); }
+.border-line { border-color: var(--line); }
+
+/* eyebrow：小号大写 + 宽字距 */
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brand);
+  font-weight: 500;
+}
+
+/* 图片 scrim（压在图上保证文字可读） */
+.photo-shade { position: relative; }
+.photo-shade::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(11,15,14,0) 40%, rgba(11,15,14,0.55) 100%);
+  border-radius: inherit;
+}
+
+@keyframes revealUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.reveal { opacity: 0; }
+.reveal-visible { animation: revealUp 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+
+@keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.08); } }
+.ken-burns { animation: kenBurns 24s ease-in-out infinite alternate; }
+
+/* 悬停图片放大（卡片内） */
+.group-zoom img, .group-zoom .img { transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.group-zoom:hover img, .group-zoom:hover .img { transform: scale(1.06); }
+
+/* ——— Arco 补充润色 ——— */
+.arco-card { border-radius: var(--radius-card); border-color: var(--line); background: var(--surface); }
+.arco-drawer { background: var(--surface); }
+.arco-drawer .arco-drawer-content { background: var(--surface); }
+.arco-btn-primary { box-shadow: 0 6px 16px -8px rgba(11, 107, 92, 0.5); }
+.page-header h1 { color: var(--ink); letter-spacing: -0.01em; }
